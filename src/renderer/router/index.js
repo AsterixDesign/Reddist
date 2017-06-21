@@ -3,7 +3,10 @@ import Router from 'vue-router'
 import Meta from 'vue-meta'
 
 import { DefaultLayout } from '../layouts'
-import { HomePage } from '../pages'
+import {
+  HomePage,
+  FrontPage
+} from '../pages'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -18,6 +21,11 @@ export default new Router({
           path: '/',
           name: 'Home Page',
           component: HomePage
+        },
+        {
+          path: '/r/frontpage',
+          name: 'Front Page',
+          component: FrontPage
         }
       ]
     },

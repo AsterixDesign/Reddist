@@ -62,7 +62,8 @@
         {
           icon: 'star',
           text: 'Front Page',
-          router: true
+          router: true,
+          to: '/r/frontpage'
         },
         {
           icon: 'radio_button_unchecked',
