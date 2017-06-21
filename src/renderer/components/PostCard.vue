@@ -40,13 +40,13 @@
   export default {
     name: 'PostCard',
     props: {
-      title: Types.string,
-      upvotesNum: Types.number,
-      commentNum: Types.number,
+      title: Types.string.def('title'),
+      upvotesNum: Types.number.def(2000),
+      commentNum: Types.number.def(20),
       img: Types.string,
-      subReddit: Types.string,
-      contentLink: Types.string,
-      opUsername: Types.string
+      subReddit: Types.string.def('aww'),
+      contentLink: Types.string.def('http://www.google.com?=hello?'),
+      opUsername: Types.string.def('ballbuster')
     },
     data () {
       return {
