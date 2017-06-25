@@ -1,6 +1,6 @@
 <template lang="pug">
   v-navigation-drawer.root.grey.lighten-4.pb-0(
-    temporary,
+    persistent,
     height='100%',
     light,
     v-model="drawerStatus"

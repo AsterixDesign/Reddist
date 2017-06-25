@@ -51,4 +51,5 @@
     .post-list
       overflow-y scroll
       height calc(100vh - 56px)
+      min-width 300px
 </style>
