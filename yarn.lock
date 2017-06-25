@@ -2610,6 +2610,10 @@ eslint-plugin-node@^4.2.2:
     resolve "^1.1.7"
     semver "5.3.0"
 
+eslint-plugin-promise@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.5.0.tgz#78fbb6ffe047201627569e85a6c5373af2a68fca"
+
 eslint-plugin-standard@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-3.0.1.tgz#34d0c915b45edc6f010393c7eef3823b08565cf2"
@@ -6812,6 +6816,10 @@ uuid@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
+valid-url@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/valid-url/-/valid-url-1.0.9.tgz#1c14479b40f1397a75782f115e4086447433a200"
+
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz#2804babe712ad3379459acfbe24746ab2c303fbc"
@@ -6947,6 +6955,10 @@ vue-types@^1.0.1:
   resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-1.0.1.tgz#09e66d9afb2cd3872acb9d0e3c78a77e08baf8c0"
   dependencies:
     lodash.isplainobject "4.0.6"
+
+vue2-filters@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/vue2-filters/-/vue2-filters-0.1.9.tgz#3fc9e78e5744efff03223cff0e395907bb6b41ed"
 
 vue@^2.3.3:
   version "2.3.4"

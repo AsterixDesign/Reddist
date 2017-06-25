@@ -1,15 +1,16 @@
 <template lang="pug">
   v-layout(column).root
-    v-flex(xs4)
+    v-flex(xs4).post-list
       template(v-for='(item, i) in items')
-        post-card(
+        post-card.pt-2(
           :title="item.title",
           :commentNum="item.num_comments",
-          :subReddit="item.subreddit.display_name",
-          :upvotesNum="item.score",
+          :subreddit="item.subreddit.display_name",
+          :score="item.score",
           :contentLink="item.url",
-          :img="item.url",
-          :opUsername="item.author.name"
+          :previewImg="item.thumbnail",
+          :postAuthor="item.author.name",
+          :postId="item.id"
         )
 </template>
 
@@ -32,21 +33,21 @@
     methods: {
       ...mapActions([
         'setCurrentLocation'
-      ])
+      ]),
+      fetchPosts: async function () {
+        this.items = await Reddit.getHot({limit: 50})
+      }
     },
     created () {
-      this.setCurrentLocation('Front Page')
-      const stuff = async () => {
-        const list = await Reddit.getHot({limit: 10})
-        console.log(list[0].subreddit.display_name)
-        this.items = list
-      }
-      stuff()
+      this.setCurrentLocation('r/FrontPage')
+      this.fetchPosts()
     }
   }
 </script>
 
 <style lang="stylus" scoped>
   .root
-    /* styles */
+    .post-list
+      overflow-y scroll
+      height 100vh
 </style>

@@ -1,5 +1,5 @@
 const state = {
-  drawerOpen: true,
+  drawerOpen: false,
   currentLocation: 'Recent',
   signedIn: true
 }

@@ -5,24 +5,24 @@
         v-card-title
           span {{ this.title }}
         .pr-3.post-info
-          span.up-votes {{ this.upvotesNum }}
+          span.up-votes {{ this.score }}
           br
           span
-            v-icon(small) mode_comment
+            v-icon(small).pr-1 mode_comment
             | {{ this.commentNum }}
-      v-card-row(v-if="img")
-        img(:src="img")
+      v-card-row(v-if="validPreview")
+        img(:src="validPreview")
       v-card-row
         .info-container.pr-3.pl-3
           span
             v-icon book
-            | {{ `r/${this.subReddit}` }}
+            | {{ `r/${this.subreddit}` | truncate(12) }}
           span
             v-icon link
-            | {{ this.contentLinkRoot }}
+            | {{ this.urlHostName | truncate(7) }}
           span
             v-icon perm_identity
-            | {{ `u/${this.opUsername}` }}
+            | {{ `u/${this.postAuthor}` | truncate(12) }}
       v-card-row(actions)
         v-btn(icon)
           v-icon save
@@ -35,22 +35,36 @@
 
 <script>
   import Types from 'vue-types'
-  import { getRootDomain } from '../util'
+  import ValidUrl from 'valid-url'
+  import { URL } from 'url'
 
   export default {
     name: 'PostCard',
     props: {
       title: Types.string.def('title'),
-      upvotesNum: Types.number.def(2000),
+      score: Types.number.def(2000),
       commentNum: Types.number.def(20),
-      img: Types.string,
-      subReddit: Types.string.def('aww'),
+      previewImg: Types.string,
+      subreddit: Types.string.def('aww'),
       contentLink: Types.string.def('http://www.google.com?=hello?'),
-      opUsername: Types.string.def('ballbuster')
+      postAuthor: Types.string.def('ballbuster'),
+      postId: Types.string
     },
     data () {
-      return {
-        contentLinkRoot: getRootDomain(this.contentLink)
+      return {}
+    },
+    computed: {
+      urlHostName () {
+        const url = new URL(this.contentLink)
+        const hostname = url.hostname
+        if (hostname.indexOf('www.') > -1) {
+          return hostname.split('.').splice(1, hostname.length - 1).join('.')
+        }
+        return hostname
+      },
+      validPreview () {
+        if (ValidUrl.isUri(this.previewImg)) return this.previewImg
+        return ''
       }
     }
   }
