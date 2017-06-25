@@ -1,6 +1,6 @@
 <template lang="pug">
-  v-layout(column).root
-    v-flex(xs4).post-list
+  v-layout(column).root.pr-1
+    v-flex(xs12, sm12, md5, lg4, xl3).post-list
       template(v-for='(item, i) in items')
         post-card.pt-2(
           :title="item.title",

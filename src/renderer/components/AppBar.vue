@@ -7,16 +7,8 @@
       light,
       @click.native.stop="toggleDrawer"
     )
+
     v-toolbar-title {{ appLocation }}
-    v-spacer
-    v-text-field(
-      prepend-icon="search",
-      label="Search...",
-      hide-details,
-      single-line,
-      light,
-      disabled
-    )
 
     v-menu(
       left,
