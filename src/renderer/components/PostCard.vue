@@ -16,13 +16,13 @@
         .info-container.pr-3.pl-3
           span
             v-icon book
-            | {{ `r/${this.subreddit}` | truncate(12) }}
+            | {{ `r/${this.subreddit}` | truncate(8) }}
           span
             v-icon link
             | {{ this.urlHostName | truncate(7) }}
           span
             v-icon perm_identity
-            | {{ `u/${this.postAuthor}` | truncate(12) }}
+            | {{ `u/${this.postAuthor}` | truncate(8) }}
       v-card-row(actions)
         v-btn(icon)
           v-icon save

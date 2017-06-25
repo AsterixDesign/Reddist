@@ -1,17 +1,18 @@
 <template lang="pug">
-  v-layout(column).root.pr-1
-    v-flex(xs12, sm12, md5, lg4, xl3).post-list
-      template(v-for='(item, i) in items')
-        post-card.pt-2(
-          :title="item.title",
-          :commentNum="item.num_comments",
-          :subreddit="item.subreddit.display_name",
-          :score="item.score",
-          :contentLink="item.url",
-          :previewImg="item.thumbnail",
-          :postAuthor="item.author.name",
-          :postId="item.id"
-        )
+  .root
+    v-layout(column).pr-1
+      v-flex(xs12, sm6, md4, lg4, xl4).post-list.pt-2.pb-3
+        template(v-for='(item, i) in items')
+          post-card.pt-2(
+            :title="item.title",
+            :commentNum="item.num_comments",
+            :subreddit="item.subreddit.display_name",
+            :score="item.score",
+            :contentLink="item.url",
+            :previewImg="item.thumbnail",
+            :postAuthor="item.author.name",
+            :postId="item.id"
+          )
 </template>
 
 <script>
@@ -49,5 +50,5 @@
   .root
     .post-list
       overflow-y scroll
-      height 100vh
+      height calc(100vh - 56px)
 </style>

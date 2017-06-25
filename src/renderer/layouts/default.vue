@@ -5,11 +5,11 @@
       :toggleDrawer="toggleDrawerStatus",
       :appLocation="getCurrentLocation"
     )
-    main: v-container(fluid): router-view
-    v-footer
-      span Asterix*Designs
-      v-spacer
-      span Reddist {{ new Date().getFullYear() }}
+    main: v-container(fluid).pt-0.pb-0: router-view
+    //v-footer
+    //  span Asterix*Designs
+    //  v-spacer
+    //  span Reddist {{ new Date().getFullYear() }}
 </template>
 
 <script>
@@ -35,4 +35,7 @@
   }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+  main
+    overflow-y: scroll
+</style>
